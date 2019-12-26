@@ -1,0 +1,20 @@
+In the previous lesson, we created our account on Bolt Cloud. Before we link our Bolt device to our account, let us understand the Bolt Cloud Architecture, how it works, and why it is important.
+
+The Bolt Cloud is one of the major component in providing the IoT capabilities to the Bolt device. All the Bolt devices connect to the Bolt Cloud out of the box. The Bolt devices are shipped with a firmware that helps it understand how to connect to the Bolt Cloud over the Internet.
+
+Communication of Bolt Devices with Bolt Cloud
+
+
+
+
+The communication of Bolt devices with Bolt Cloud happens over the MQTT communication protocol. MQTT stands for Message Queue Telemetry Transport. But why do we need to have a protocol such as MQTT for communication when HTTP & HTTPS protocols are so popular and widely used for communication? Although these protocols are popular, the amount of overhead data that is sent over the Internet for managing the communication is quite a lot. Overhead data is the data which is sent along with the actual message/data which conveys the extra information required to understand the message/data sent. The overhead data varies from protocol to protocol. This is fine in case of systems such as mobile phones, laptops, desktop computes that have the hardware capabilities and the network capabilities to send the extra overhead data.
+
+Most IoT devices and sensors contain limited processing capabilities and constrained Internet bandwidth. Due to these limitations, they send data over the Internet only when required and the data sent is very low in terms of bandwidth usage. Hence using protocols such as HTTP, HTTPS does not become feasible where the overhead data is more than the actual data itself. MQTT contains very low overhead and hence becomes ideal for IoT communication.
+
+MQTT is a pub-sub messaging protocol. Pub refers to publishing and sub refers to subscribing. There is a central entity, in our case it is the Bolt Cloud. All the Bolt devices connect to the Bolt Cloud and send the data to various channels by publishing the data on their unique channels. The Bolt devies also subscribe to channels so that they can receive commands coming from the Bolt users.
+
+The Bolt Cloud users i.e. people like us communicate with the Bolt Cloud using the HTTPS communication protocol. We can use the Bolt Cloud dashboard to control and monitor our Bolt devices or use the Bolt Cloud APIs in case we want to by-pass the dashboard and access our Bolt devices via programs that we have written. We shall learn more about this in the next modules.
+
+Bolt Cloud receives all the commands to control or request for sensor data from Bolt devices, and sends the commands to the Bolt device. The Bolt device executes the commands, and sends a response back to the Bolt Cloud which in turn forwards it to the user who initiated the command.
+
+In this lesson, we understood the architecture of the Bolt Cloud, how the Bolt devices and users communicate with the Bolt Cloud. In the next lesson, we shall see how the Bolt Cloud works.
